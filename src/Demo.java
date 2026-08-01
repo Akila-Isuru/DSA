@@ -5,6 +5,7 @@ public class Demo {
         int target_value = 17;
 
         int result = binarySearch(nums,target_value);
+//        int result = linearSearch(nums,target_value);
         if(result!=-1){
             System.out.println("Element found at index "+result+" at value "+target_value);
         }else {
