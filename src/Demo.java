@@ -2,7 +2,7 @@ public class Demo {
     public static void main(String[] args) {
 
         int [] nums = {1,7,8,12,17};
-        int target_value = 17;
+        int target_value = 8;
 
         int result = binarySearch(nums,target_value);
 //        int result = linearSearch(nums,target_value);
@@ -15,34 +15,33 @@ public class Demo {
 
     public static int linearSearch(int[] nums, int targetValue) {
 
-        for(int i =0;i<nums.length;i++){
-            if(nums[i]==targetValue){
-                return i;
-            }
-        }
-        return -1;
+       for(int i =0;i<nums.length;i++){
+           if(nums[i]==targetValue){
+               return i;
+           }
+       }
+       return -1;
 
     }
 
     public static int binarySearch(int[] nums,int targetValue){
-     int left=0;
-     int right =  nums.length-1;
 
-     while(left<=right){
-        int mid = (left+right)/2;
+        int left =0;
+        int right = nums.length-1;
 
-        if(nums[mid]==targetValue){
-            return mid;
+        while(left<=right){
+            int mid = (left+right)/2;
+            if(nums[mid]==targetValue){
+                return mid;
+            } else if (targetValue<nums[mid]) {
+                right = mid-1;
+
+            } else if (targetValue>nums[mid]) {
+                left = mid+1;
+
+            }
         }
-        else if(targetValue<nums[mid]){
-            right= mid -1;
+        return -1;
 
-        }else{
-            left =mid+1;
-        }
-
-    }
-
-    return -1;
 }
 }
